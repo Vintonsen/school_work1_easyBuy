@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.easybuy.mapper.OrderMapper">
+
+	<insert id="add" keyProperty="id" useGeneratedKeys="true">
+		insert into easybuy_order
+		(userId,loginName,userAddress,createTime,cost,serialNumber) 
+		values
+		(#{userId},#{loginName},#{userAddress},#{createTime},#{cost},#{serialNumber})
+	</insert>
+	
+	<delete id="deleteById">
+		delete from easybuy_order where id = #{id}
+	</delete>
+	
+	<select id="getOrderById" resultType="Order">
+		select * from easybuy_order where id = #{id}
+	</select>
+	
+	<select id="getOrderList" resultType="Order">
+		select id,userId,loginName,userAddress,createTime,cost,serialNumber 
+		from 
+		easybuy_order
+		<where>
+			<if test="userId != null">
+				userId = #{userId}
+			</if>
+		</where>
+		limit #{init},#{pageSize}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(*) count from easybuy_order
+		<where>
+			<if test="userId != null">
+				userId=#{userId}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

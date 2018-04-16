@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.easybuy.mapper.OrderDetailMapper">
+
+	<insert id="add">
+		insert into easybuy_order_detail
+		(orderId,productId,quantity,cost) 
+		values
+		(#{orderId},#{productId},#{quantity},#{cost}) 
+	</insert>
+	
+	<delete id="deleteById">
+		delete from easybuy_order_detail where id = #{id}
+	</delete>
+	
+	<select id="getOrderDetailById" resultType="OrderDetail">
+		select orderId,productId,quantity,cost from easybuy_order_detail 
+		where 
+		id = #{id}
+	</select>
+	
+	<select id="getOrderDetailList" resultMap="MyOrderDetail">
+		select od.id as oid,orderId,productId,quantity,cost,p.name,p.fileName,p.id as pid
+		FROM 
+		easybuy_order_detail od,easybuy_product p
+		<where>
+			<if test="orderId != null">
+				orderId = #{orderId}
+			</if>
+		</where>
+		and od.productId = p.id
+	</select>
+	
+	<resultMap type="OrderDetail" id="MyOrderDetail">
+		<id column="oid" property="id"/>
+		<result column="pid" property="product.id"/>
+		<result column="name" property="product.name"/>
+		<result column="fileName" property="product.fileName"/>
+	</resultMap>
+	
+	<select id="queryOrderDetailCount" resultType="int">
+		select count(*) FROM easybuy_order_detail
+	</select>
+	
+</mapper>

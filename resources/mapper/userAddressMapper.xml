@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.easybuy.mapper.UserAddressMapper">
+
+	<select id="queryUserAddressList" resultType="UserAddress">
+		select id,userId,address,createTime,isDefault,remark 
+		from 
+		easybuy_user_address
+		<where>
+			<if test="userId != null">
+				userId = #{userId}
+			</if>
+			<if test="address != null">
+				address like "%"#{address}"%"
+			</if>
+		</where>
+		<if test="sort != null">
+			order by sort=#{sort}
+		</if>
+		<if test="isPage">
+			limit #{init},#{pageSize}
+		</if>
+	</select>
+	
+	<insert id="add">
+		INSERT 
+		into 
+		easybuy_user_address
+		(userId,address,createTime,isDefault,remark) 
+		VALUES
+		(#{param1.userId},#{param1.address},#{param1.createTime},#{isDefault},#{param1.remark}) 
+	</insert>
+	
+	<select id="getUserAddressById" resultType="UserAddress">
+		select id,userId,address,createTime,isDefault,remark 
+		from easybuy_user_address  
+		where id=#{id}
+	</select>
+	
+</mapper>

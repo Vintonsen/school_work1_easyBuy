@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.easybuy.mapper.ProductCategoryMapper">
+
+	<select id="queryProductCategorylist" resultType="ProductCategory">
+		SELECT epc1.*,epc2.name as parentName 
+		FROM 
+		easybuy_product_category epc1 
+		LEFT JOIN 
+		easybuy_product_category epc2 
+		ON 
+		epc1.parentId=epc2.id
+		<where>
+			<if test="name != null">
+				epc1.name like "%"#{name}"%"
+			</if>
+			<if test="parentId != null">
+				and epc1.parentId = #{parentId}
+			</if>
+			<if test="type != null">
+				and epc1.type = #{type}
+			</if>
+		</where>
+		<if test="isPage">
+			limit #{init},#{pageSize}
+		</if>
+	</select>
+	
+	<delete id="deleteById">
+		delete from easybuy_product_category where id = #{id}
+	</delete>
+	
+	<select id="queryProductCategoryCount" resultType="int">
+		SELECT count(*) count FROM easybuy_product_category
+		<where>
+			<if test="name != null">
+				and name like "%"#{name}"%"
+			</if>
+			<if test="parentId">
+				and parentId = #{parentId}
+			</if>
+		</where>
+	</select>
+	
+	<select id="queryProductCategoryById" resultType="ProductCategory">
+		SELECT id,name,parentId,type,iconClass  
+		FROM 
+		easybuy_product_category where id = #{id}
+	</select>
+	
+	<insert id="add">
+		INSERT 
+		into 
+		easybuy_product_category
+		(name,parentId,type,iconClass) 
+		values
+		(#{name},#{parentId},#{type},#{iconClass})
+	</insert>
+	
+	<update id="update">
+		UPDATE easybuy_product_category 
+		SET 
+		name=#{name},parentId=#{parentId},type=#{type},iconClass=#{iconClass} 
+		WHERE id =#{id}
+	</update>
+	
+</mapper>
