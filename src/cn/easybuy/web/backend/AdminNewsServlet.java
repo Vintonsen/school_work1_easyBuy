@@ -8,7 +8,7 @@ import cn.easybuy.entity.News;
 import cn.easybuy.param.NewsParams;
 import cn.easybuy.service.news.MyNewsServiceImpl;
 import cn.easybuy.service.news.NewsService;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductService;
 import cn.easybuy.service.news.NewsServiceImpl;
 import cn.easybuy.service.product.ProductServiceImpl;
@@ -26,7 +26,7 @@ public class AdminNewsServlet extends AbstractServlet {
 
 	public void init() throws ServletException {
 		this.newsService = new MyNewsServiceImpl();
-		this.productService = new MyProductService();
+		this.productService = new MyProductServiceImpl();
 	}
 
 	@Override

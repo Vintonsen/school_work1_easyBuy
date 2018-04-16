@@ -17,7 +17,6 @@ import cn.easybuy.service.MyBaseService;
 public class MyUserAddressServiceImpl extends MyBaseService<UserAddressMapper>
 		implements UserAddressService {
 
-	
 	@Override
 	public List<UserAddress> queryUserAdressList(Integer id) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -29,8 +28,9 @@ public class MyUserAddressServiceImpl extends MyBaseService<UserAddressMapper>
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return userAddresses;
 	}
 
@@ -49,8 +49,9 @@ public class MyUserAddressServiceImpl extends MyBaseService<UserAddressMapper>
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count;
 	}
 
@@ -63,8 +64,9 @@ public class MyUserAddressServiceImpl extends MyBaseService<UserAddressMapper>
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return userAddress;
 	}
 

@@ -13,7 +13,7 @@ import cn.easybuy.param.NewsParams;
 import cn.easybuy.service.news.MyNewsServiceImpl;
 import cn.easybuy.service.news.NewsService;
 import cn.easybuy.service.product.MyProductCategoryService;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductCategoryService;
 import cn.easybuy.service.product.ProductService;
 import cn.easybuy.service.news.NewsServiceImpl;
@@ -32,7 +32,7 @@ public class HomeServlet extends AbstractServlet {
     private ProductCategoryService productCategoryService;
 
     public void init() throws ServletException {
-        productService = new MyProductService();
+        productService = new MyProductServiceImpl();
         newsService = new MyNewsServiceImpl();
         productCategoryService = new MyProductCategoryService();
     }

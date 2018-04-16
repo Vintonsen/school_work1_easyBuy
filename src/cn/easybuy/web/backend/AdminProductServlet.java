@@ -9,7 +9,7 @@ import cn.easybuy.entity.Product;
 import cn.easybuy.entity.ProductCategory;
 import cn.easybuy.param.ProductCategoryParam;
 import cn.easybuy.service.product.MyProductCategoryService;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductCategoryService;
 import cn.easybuy.service.product.ProductService;
 import cn.easybuy.service.product.ProductCategoryServiceImpl;
@@ -54,7 +54,7 @@ public class AdminProductServlet extends AbstractServlet {
 			throw new ServletException(DESTINATION_DIR_PATH
 					+ " is not a directory");
 		}
-		productService = new MyProductService();
+		productService = new MyProductServiceImpl();
 		productCategoryService=new MyProductCategoryService();
 	}
 	/**

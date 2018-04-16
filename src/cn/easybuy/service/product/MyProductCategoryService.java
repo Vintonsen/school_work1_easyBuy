@@ -29,8 +29,9 @@ public class MyProductCategoryService extends
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return productCategory;
 	}
 
@@ -51,8 +52,9 @@ public class MyProductCategoryService extends
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return productCategories;
 	}
 
@@ -65,8 +67,9 @@ public class MyProductCategoryService extends
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count;
 	}
 
@@ -78,8 +81,9 @@ public class MyProductCategoryService extends
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 	}
 
 	@Override
@@ -90,8 +94,9 @@ public class MyProductCategoryService extends
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 	}
 
 	@Override
@@ -102,8 +107,9 @@ public class MyProductCategoryService extends
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import cn.easybuy.service.order.MyOrderServiceImpl;
 import cn.easybuy.service.order.OrderService;
 import cn.easybuy.service.order.OrderServiceImpl;
 import cn.easybuy.service.product.MyProductCategoryService;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductCategoryService;
 import cn.easybuy.service.product.ProductCategoryServiceImpl;
 import cn.easybuy.service.product.ProductService;
@@ -54,7 +54,7 @@ public class CartServlet extends AbstractServlet {
     private UserAddressService userAddressService;
 
     public void init() throws ServletException {
-        productService = new MyProductService();
+        productService = new MyProductServiceImpl();
         orderService = new MyOrderServiceImpl();
         userService = new MyUserServiceImpl();
         productCategoryService = new MyProductCategoryService();

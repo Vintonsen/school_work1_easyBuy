@@ -13,11 +13,12 @@ import cn.easybuy.utils.MyBatisUtil;
 
 /**
  * @author chsm
- * @date  2018年4月13日下午3:39:44
+ * @date 2018年4月13日下午3:39:44
  * @version 1.0
  */
-public class MyUserServiceImpl extends MyBaseService<UserMapper> implements UserService {
-	
+public class MyUserServiceImpl extends MyBaseService<UserMapper> implements
+		UserService {
+
 	@Override
 	public boolean add(User user) {
 		before();
@@ -28,11 +29,12 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements User
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
-	
+
 	@Override
 	public boolean update(User user) {
 		before();
@@ -42,12 +44,12 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements User
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
 
-	
 	@Override
 	public boolean deleteUserById(Integer userId) {
 		before();
@@ -57,12 +59,12 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements User
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
 
-	
 	@Override
 	public User getUser(Integer userId, String loginName) {
 		before();
@@ -74,12 +76,12 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements User
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return user;
 	}
 
-	
 	@Override
 	public List<User> getUserList(Integer currentPageNo, Integer pageSize) {
 		before();
@@ -90,12 +92,12 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements User
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return users;
 	}
 
-	
 	@Override
 	public int count() {
 		before();
@@ -105,9 +107,10 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements User
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count;
 	}
-	
+
 }

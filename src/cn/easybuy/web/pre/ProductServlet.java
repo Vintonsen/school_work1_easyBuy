@@ -2,7 +2,7 @@ package cn.easybuy.web.pre;
 
 import cn.easybuy.entity.Product;
 import cn.easybuy.service.product.MyProductCategoryService;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductCategoryService;
 import cn.easybuy.service.product.ProductService;
 import cn.easybuy.service.product.ProductCategoryServiceImpl;
@@ -32,7 +32,7 @@ public class ProductServlet extends AbstractServlet {
 
 
     public void init() throws ServletException {
-        productService = new MyProductService();
+        productService = new MyProductServiceImpl();
         productCategoryService=new MyProductCategoryService();
     }
 

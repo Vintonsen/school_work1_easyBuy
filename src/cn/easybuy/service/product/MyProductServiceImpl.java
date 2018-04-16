@@ -13,8 +13,8 @@ import cn.easybuy.service.MyBaseService;
  * @date 2018年4月14日下午10:33:01
  * @version 1.0
  */
-public class MyProductService extends MyBaseService<ProductMapper> implements
-		ProductService {
+public class MyProductServiceImpl extends MyBaseService<ProductMapper>
+		implements ProductService {
 
 	@Override
 	public boolean add(Product product) {
@@ -25,8 +25,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
 
@@ -39,8 +40,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
 
@@ -53,8 +55,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
 
@@ -67,8 +70,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return product;
 	}
 
@@ -87,8 +91,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return products;
 	}
 
@@ -104,8 +109,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count;
 	}
 
@@ -121,8 +127,9 @@ public class MyProductService extends MyBaseService<ProductMapper> implements
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.rollback();
+		} finally {
+			after();
 		}
-		after();
 		return count == 0 ? false : true;
 	}
 

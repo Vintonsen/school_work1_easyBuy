@@ -2,7 +2,7 @@ package cn.easybuy.web.pre;
 
 import cn.easybuy.entity.Product;
 import cn.easybuy.entity.User;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductService;
 import cn.easybuy.service.product.ProductServiceImpl;
 import cn.easybuy.utils.EmptyUtils;
@@ -29,7 +29,7 @@ public class FavoriteServlet extends AbstractServlet {
     private ProductService productService;
 
     public void init() throws ServletException {
-        productService = new MyProductService();
+        productService = new MyProductServiceImpl();
     }
 
     @Override

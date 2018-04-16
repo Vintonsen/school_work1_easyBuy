@@ -2,7 +2,7 @@ package cn.easybuy.web.backend;
 import cn.easybuy.entity.ProductCategory;
 import cn.easybuy.param.ProductCategoryParam;
 import cn.easybuy.service.product.MyProductCategoryService;
-import cn.easybuy.service.product.MyProductService;
+import cn.easybuy.service.product.MyProductServiceImpl;
 import cn.easybuy.service.product.ProductCategoryService;
 import cn.easybuy.service.product.ProductCategoryServiceImpl;
 import cn.easybuy.service.product.ProductService;
@@ -32,7 +32,7 @@ public class AdminProductCategoryServlet extends AbstractServlet{
 
     public void init() throws ServletException {
         this.productCategoryService = new MyProductCategoryService();
-        this.productService=new MyProductService();
+        this.productService=new MyProductServiceImpl();
     }
     /**
      * 订单的主页面
