@@ -32,7 +32,7 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements
 		} finally {
 			after();
 		}
-		return count == 0 ? false : true;
+		return count > 0;
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements
 		} finally {
 			after();
 		}
-		return count == 0 ? false : true;
+		return count > 0;
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class MyUserServiceImpl extends MyBaseService<UserMapper> implements
 		} finally {
 			after();
 		}
-		return count == 0 ? false : true;
+		return count > 0;
 	}
 
 	@Override

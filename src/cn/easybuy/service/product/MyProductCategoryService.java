@@ -117,6 +117,11 @@ public class MyProductCategoryService extends
 		return queryTest(0);
 	}
 
+	/**
+	 * 递归查询多级目录
+	 * @param parentId 父级id
+	 * @return
+	 */
 	public List<ProductCategoryVo> queryTest(Integer parentId) {
 		// 存放每一级数据
 		List<ProductCategoryVo> productCategoryVos = new ArrayList<ProductCategoryVo>();

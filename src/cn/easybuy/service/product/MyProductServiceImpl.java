@@ -28,7 +28,7 @@ public class MyProductServiceImpl extends MyBaseService<ProductMapper>
 		} finally {
 			after();
 		}
-		return count == 0 ? false : true;
+		return count > 0;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class MyProductServiceImpl extends MyBaseService<ProductMapper>
 		} finally {
 			after();
 		}
-		return count == 0 ? false : true;
+		return count > 0;
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class MyProductServiceImpl extends MyBaseService<ProductMapper>
 		} finally {
 			after();
 		}
-		return count == 0 ? false : true;
+		return count > 0;
 	}
 
 	@Override
